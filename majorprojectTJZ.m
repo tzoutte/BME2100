@@ -1,6 +1,7 @@
 clearvars;
 clf;
-paramhealthyTJZ;
+pf=input('What parameter file do you want to use? \n', 's');
+eval(pf);
 % create temp variables for compliance (sys/dias)
 Chstemp=(Chd-Chs)*exp(-t(1:250)/Ts)+Chs;
 Chdtemp=(Chs-Chd)*exp(-t(1:550)/Td)+Chd;
@@ -50,7 +51,7 @@ for b=1:10 % 10 heart beats
     plot(t,Pv,'-b');
     xlabel('Time (s)'); 
     ylabel('Pressure (mmHg)');
-    title('Five Cardiac Cycle Pressures, Healthy: T. Zoutte');
+    title('Five Cardiac Cycle Pressures T. Zoutte');
     grid on;
     legend('Ph','Po','Pa','Pc','Pv');
     Q1avg=(mean(Q1)*60); % convert to L/min
